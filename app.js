@@ -103,19 +103,19 @@ $(document).ready(() => {
           .append($('<span>').attr('class', 'uviColor').text(UVI));
 
         // Append created element to the text area
-        $('#city-info').append(indexUV);
+        $('.city-info').append(indexUV);
 
         //   Conditions for displaing color depending on data from server
         if (UVI <= 3) {
-          $('.uviColor').addClass('green');
+          $('.uviColor').css('color', 'green');
         } else if (UVI > 3 && UVI < 6) {
-          $('.uviColor').addClass('yellow');
+          $('.uviColor').css('color', 'yellow');
         } else if (UVI > 6 && UVI < 8) {
-          $('.uviColor').addClass('orange');
+          $('.uviColor').css('color', 'orange');
         } else if (UVI > 8 && UVI < 11) {
-          $('.uviColor').addClass('red');
+          $('.uviColor').css('color', 'red');
         } else {
-          $('.uviColor').addClass('violet');
+          $('.uviColor').css('color', 'violet');
         }
 
         //   Loop for display 5-day forecast
