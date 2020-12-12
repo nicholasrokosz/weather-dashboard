@@ -15,13 +15,16 @@
 $(document).ready(() => {
   const today = luxon.DateTime.local().toFormat('D');
   const myKey = 'a8264870351b77d127763c42dc124460';
+  const history = [
+    ...new Set(JSON.parse(window.localStorage.getItem('history')) || []),
+  ];
 
   $('#search-btn').click(function (e) {
     e.preventDefault();
 
     const cityName = $('#search').val().trim();
 
-    $('#city-info').empty();
+    $('.city-info').empty();
     $('#prev-cities').empty();
     $('#day1').empty();
     $('#day2').empty();
@@ -155,9 +158,6 @@ $(document).ready(() => {
     });
   }
 
-  // Variable for local storage
-  var history = JSON.parse(window.localStorage.getItem('history')) || [];
-
   // Function to append city names to the history box
   function makeHistory() {
     function makeRow(text) {
@@ -184,18 +184,18 @@ $(document).ready(() => {
 
   // Function to display previous data if you click city name in history box
   function historyOnClick(event) {
-    var histEl = event.target;
+    const histEl = event.target;
     if (event.target.matches('h5')) {
-      $('#city-info').empty();
+      $('.city-info').empty();
       $('#prev-cities').empty();
       $('#day1').empty();
       $('#day2').empty();
       $('#day3').empty();
       $('#day4').empty();
       $('#day5').empty();
-      city = histEl.textContent.trim();
+      const pastCity = histEl.textContent.trim();
 
-      getWeather(city);
+      getWeather(pastCity);
     }
   }
 
