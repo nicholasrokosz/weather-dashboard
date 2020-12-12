@@ -3,14 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="assets/styles/style.css" />
+    <script
+      src="https://kit.fontawesome.com/a1d16bc025.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="container">
-      <header class="header"></header>
-      <aside class="search-card"></aside>
-      <main class="weather-wrapper"></main>
+      <header class="header">
+        <h1><i class="fas fa-sun"></i> Weather Dashboard</h1>
+      </header>
+      <div class="searchbar">
+        <input type="text" id="search" placeholder="Enter city name here..." />
+        <button id="search-btn"><i class="fas fa-search"></i></button>
+        <button
+          class="btn btn-outline-success bg-danger text-white my-2 my-sm-0 ml-2"
+          type="submit"
+          id="clearBtn"
+        >
+          Clear
+        </button>
+      </div>
+      <main class="weather-wrapper">
+        <!-- current city info -->
+        <div class="city-info"></div>
+        <hr />
+        <!-- 5-day forecast -->
+        <h2>5-Day Forecast</h2>
+        <div class="five-day">
+          <div class="five-day-item" id="day1"></div>
+          <div class="five-day-item" id="day2"></div>
+          <div class="five-day-item" id="day3"></div>
+          <div class="five-day-item" id="day4"></div>
+          <div class="five-day-item" id="day5"></div>
+        </div>
+        <!-- previously searched cities -->
+        <div class="prev-cities"></div>
+      </main>
       <footer class="footer"></footer>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@1.25.0/build/global/luxon.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js"></script>
   </body>
 </html>
